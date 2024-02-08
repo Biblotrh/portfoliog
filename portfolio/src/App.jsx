@@ -49,7 +49,7 @@ const ProjectCard = ({ href, imageSrc, title, description }) => (
     rel="noopener noreferrer"
   >
     <div className="my-auto">
-      <img className="w-16" src={imageSrc} alt="" />
+      <img className="md:w-16 w-48" src={imageSrc} alt="" />
     </div>
     <div>
       <p className="font-bold text-2xl">{title}</p>
@@ -65,9 +65,9 @@ const PostCard = ({ href, title, date }) => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <div className="flex justify-between w-full">
-      <p className="font-xm text-l text-right">{title}</p>
-      <p className="text-left">{date}</p>
+    <div className="md:flex justify-between w-full">
+      <p className="font-xm text-l md:text-right text-sm md:text-xl">{title}</p>
+      <p className="text-right md:text-base text-xs my-auto">{date}</p>
     </div>
   </a>
 );
@@ -115,14 +115,14 @@ function App() {
   const projects = [
     {
       href: "https://www.stockivia.com",
-      imageSrc: "../public/STOCKIVIA.png",
+      imageSrc: "../STOCKIVIA.png",
       title: "Stockivia",
       description:
         "An ambitious project set to revolutionize inventory and sales management in businesses, enhancing efficiency and integration.",
     },
     {
       href: "https://www.digitalbitwave.com",
-      imageSrc: "../public/dbitwave.png",
+      imageSrc: "../dbitwave.png",
       title: "Digital Bitwave",
       description:
         "An innovative firm providing website development, marketing, and design services to enhance digital presence for businesses.",
@@ -162,12 +162,12 @@ function App() {
 
   // Handlers for hover state are not needed for this simplified approach
   return (
-    <div className="flex-col mx-auto">
+    <div className="flex-col mx-auto  ">
       <div className="text-white flex flex-col md:flex-row-reverse justify-around mx-4 sm:mx-24 md:mx-48 gap-4 sm:gap-6 md:gap-10 mt-10 ">
-        <div className="my-auto">
+        <div className="m-auto w-36 md:w-96  ">
           <img
             className="rounded-full border-2 border-white "
-            src="../public/avatar.png"
+            src="../avatar.png"
             alt=""
           />
         </div>
@@ -213,7 +213,7 @@ function App() {
         </div>
       </div>
 
-      <div className="flex flex-col text-white mt-24 mx-96">
+      <div className="flex flex-col text-white mt-24 xl:mx-72 mx-4 md:mx-16">
         <div className="flex justify-between">
           <p className="text-3xl font-semibold">Projects</p>
 
@@ -231,7 +231,7 @@ function App() {
         ))}
       </div>
 
-      <div className="flex flex-col text-white mt-24 mx-96 mb-24">
+      <div className="flex flex-col text-white mt-24 xl:mx-72 mb-24 mx-4 md:mx-16">
         <div className="flex justify-between mb-3">
           <p className="text-3xl font-semibold">Latest Posts</p>
 
