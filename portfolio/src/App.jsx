@@ -62,7 +62,6 @@ const PostCard = ({ href, title, date }) => (
   <a
     className="flex flex-row items-center text-white rounded-xl  py-3 gap-5 hover:bg-gray-600/20 transition-colors px-2"
     href={href}
-    target="_blank"
     rel="noopener noreferrer"
   >
     <div className="md:flex justify-between w-full">
