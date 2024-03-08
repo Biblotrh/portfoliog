@@ -6,7 +6,7 @@ import {
   Twitter,
   ArrowUpRight,
 } from "lucide-react";
-
+import { motion, useScroll } from "framer-motion";
 // SocialLink Component
 const SocialLink = ({
   href,
@@ -158,25 +158,40 @@ function App() {
       date: "02-03-2023",
     },
   ];
-
+  const { scrollYProgress } = useScroll();
   // Handlers for hover state are not needed for this simplified approach
   return (
     <div className="flex-col mx-auto  ">
       <div className="text-white flex flex-col md:flex-row-reverse justify-around mx-4 sm:mx-24 md:mx-48 gap-4 sm:gap-6 md:gap-10 mt-10 ">
-        <div className="m-auto w-36 md:w-96  ">
+        <motion.div
+          className="m-auto w-36 md:w-96  "
+          initial={{ y: -50 }}
+          animate={{ y: 0 }}
+          transition={{ type: "spring", stiffness: 100 }}
+        >
           <img
             className="rounded-full border-2 border-white "
             src="../avatar.png"
             alt=""
           />
-        </div>
+        </motion.div>
         <div className="justify-center flex flex-col">
-          <div className="text-4xl sm:text-5xl md:text-6xl font-extrabold my-2">
+          <motion.div
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold my-2"
+            initial={{ x: -2000 }}
+            animate={{ x: 0 }}
+            transition={{ type: "spring", stiffness: 50 }}
+          >
             Hi, I'm Pagimos.
-          </div>
-          <div className="text-xl sm:text-xl md:text-2xl font-bold mb-5 text-yellow-400">
+          </motion.div>
+          <motion.div
+            className="text-xl sm:text-xl md:text-2xl font-bold mb-5 text-yellow-400"
+            initial={{ y: -20 }}
+            animate={{ y: 0 }}
+            transition={{ type: "spring", stiffness: 100 }}
+          >
             Full Stack developer
-          </div>
+          </motion.div>
           <div className="text-lg sm:text-xl md:text-xl">
             As a Full Stack Developer with a fervent passion for
             problem-solving, I specialize in crafting highly intuitive and
@@ -230,7 +245,7 @@ function App() {
         ))}
       </div>
 
-      <div className="flex flex-col text-white mt-24 xl:mx-72 mb-24 mx-4 md:mx-16">
+      <motion.div className="flex flex-col text-white mt-24 xl:mx-72 mb-24 mx-4 md:mx-16">
         <div className="flex justify-between mb-3">
           <p className="text-3xl font-semibold">Latest Posts</p>
 
@@ -246,7 +261,8 @@ function App() {
             date={date}
           />
         ))}
-      </div>
+      </motion.div>
+
       <footer className=" inset-x-0 bottom-0 text-white text-center py-4">
         <p>Pagimos © 2024. All rights reserved.</p>
       </footer>
